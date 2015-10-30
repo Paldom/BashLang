@@ -42,7 +42,7 @@ do
      esac
 done
 
-while IFS=$SEPARATOR read key col1 col2 col3 col4 col5
+while IFS=$SEPARATOR read key col1 col2 col3 col4 col5 col6 col7
 do
     case "$COLINDEX" in
     "1")
@@ -69,7 +69,7 @@ do
     esac
     case "$OUTPUT" in
     "php")
-        echo "\"$key\" => \"$col\""
+        echo "\"$key\" => \"$col\","
         ;;
     *)
         echo "\"$key\": \"$col\","
