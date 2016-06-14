@@ -8,8 +8,8 @@ usage: $0 [-c] <column index> [-i] <input file location> [-o] <output type> [-s]
 This script converts csv to language files.
 
 OPTIONS:
-   -i      Input file location (tap separated csv), default: lang.csv
-   -o      Output file type (json, php)
+   -i      Input file location (tab separated csv), default: lang.csv
+   -o      Output file type (json, php, android, ios)
    -c      Column index of language (e.g. 2)
    -s      IFS (Internal field separator), default: tab
 EOF
@@ -70,6 +70,12 @@ do
     case "$OUTPUT" in
     "php")
         echo "\"$key\" => \"$col\","
+        ;;
+    "android")
+        echo "<string name=\"$key\">$col</string>"
+        ;;
+    "ios")
+        echo "$key = \"$col\";"
         ;;
     *)
         echo "\"$key\": \"$col\","
